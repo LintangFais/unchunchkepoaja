@@ -17,9 +17,6 @@ client.util = require('./util.js');
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
 
-// discordbotlist.com POST. 
-const Botlister = require('botlister');
-const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' })
 
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 

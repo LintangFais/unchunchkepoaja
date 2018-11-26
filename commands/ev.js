@@ -27,18 +27,18 @@ if (message.author.id !== '300577300242759682') return;
       let output = clean(evaled);
       if (output.length > 1024) {
           const { body } = await post('https://hasteb.in/documents').send(output);
-          .addField('Output', `https://hasteb.in/${body.key}.js`);
+          embed.addField('Output', `https://hasteb.in/${body.key}.js`);
       } else {
-          .addField('Output', '```js\n' + output + '```');
+          embed.addField('Output', '```js\n' + output + '```');
       }
       message.channel.send(embed);
     } catch (e) {
       let error = clean(e);
       if (error.length > 1024) {
           const { body } = await post('https://hasteb.in/documents').send(error);
-          .addField('Error', `https://hasteb.in/${body.key}.js`);
+          embed.addField('Error', `https://hasteb.in/${body.key}.js`);
       } else {
-          .addField('Error', '```js\n' + error + '```');
+          embed.addField('Error', '```js\n' + error + '```');
       }
       message.channel.send(embed);
     }

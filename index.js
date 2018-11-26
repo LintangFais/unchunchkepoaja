@@ -57,7 +57,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 var DEFAULTPREFIX = '?!' 
 
-var { body } = await snek
+/*var { body } = await snek
 .get('https://haruno-sakura.glitch.me/api/server/prefix') 
 
 if (!body[msg.guild.id]) {
@@ -66,7 +66,7 @@ if (!body[msg.guild.id]) {
  };
 } 
 
-  var prefix = body[msg.guild.id].prefix
+  var prefix = body[msg.guild.id].prefix*/
  
   exports.prefix = prefix;
   

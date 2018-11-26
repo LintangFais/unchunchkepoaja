@@ -174,7 +174,7 @@ var adedembed = new MessageEmbed()
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
-  .addField('<:YouTubeicon:501663319128670209> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
+  .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
   .setFooter(`Request by: ${song.author.tag}`)
   .setTimestamp();
 		
@@ -211,7 +211,7 @@ var pleyembed = new MessageEmbed()
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
-  .addField('<:YouTubeicon:501663319128670209> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
+  .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 

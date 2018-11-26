@@ -173,9 +173,9 @@ var adedembed = new MessageEmbed()
   .setAuthor(`✅ Added to Queue:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
-  .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
-  .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter(`Request by: ${song.author.tag}`)
+  .addField("Durasi:", `${require('./util.js').timeString(song.durationmm)}`, true)
+  .addField('<:youtube:516551677533224970> Aplod oleh:', `[${song.uploadedby}](${song.channelurl})`, true)
+  .setFooter(`Yang request : ${song.author.tag}`)
   .setTimestamp();
 		
  return msg.channel.send(adedembed);
@@ -195,7 +195,7 @@ function play(guild, song, msg) {
 
 	const dispatcher = serverQueue.connection.play(ytdl(song.url, { quality: 'highestaudio' }))
 		.on('end', reason => {
-			if (reason === 'Stream nya lama amat >:(.') console.log('Song ended.');
+			if (reason === 'Stream nya terlambat >:(.') console.log('Song ended.');
 			else console.log(reason);
 			const shifed = serverQueue.songs.shift();
       if(serverQueue.loop) serverQueue.songs.push(shifed);
@@ -212,7 +212,7 @@ var pleyembed = new MessageEmbed()
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
   .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter("Kalau gak dengan berarti ada masalah pasangan!")
+  .setFooter("Kalau gak dengar berarti ada masalah dengan pasangan hidup!")
   .setTimestamp();
 
 	serverQueue.textChannel.send(pleyembed);

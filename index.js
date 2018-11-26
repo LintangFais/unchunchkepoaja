@@ -144,7 +144,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
             loop: false, 
 		};
 		client.queue.set(msg.guild.id, queueConstruct);
-        let m = await queueConstruct.textChannel.send(':grin:  | Music servers are expensive! But you can help out: https://paypal.me/poetrakencana');
+        let m = await queueConstruct.textChannel.send(':grin:  | Music servers are expensive! But you can help out: https://paypal.me/TheCreeperIndo');
         setTimeout(() => { m.delete() }, 40000); 
 		queueConstruct.songs.push(song);
 

@@ -55,7 +55,7 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 client.on('message', async msg => { // eslint-disable-line
 
-var DEFAULTPREFIX = '?!' 
+var prefix = '?!' 
 
 /*var { body } = await snek
 .get('https://haruno-sakura.glitch.me/api/server/prefix') 

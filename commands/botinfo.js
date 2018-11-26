@@ -34,6 +34,7 @@ exports.run = async (bot, message, arg) => {
   .setThumbnail(bicon)
   .setFooter(`Request by ${message.author.tag} | ${datenow}`)
 	.setAuthor(`${bot.user.username} Infomation`)
+	.setDescription(`This bot forked from SharifPoetra/sakura`)
 	.addField(`Bot Information`, `• Bot ID **${bot.user.id}**\n• Bot Owner **BeLikeDoge#4352**\n• Created At **${botcreated}**`, true)
 	.addField(`Bot Stats`, `• **${bot.guilds.size}** Guilds\n• **${bot.channels.size}** Channels\n• **${bot.users.size}** Users`, true)
 	.addField(`Other Information`, `• Version **v1.0.4**\n• Community **Discordbots Development**\n• Bot Ping **${(bot.ping).toFixed(0)} ms**`, true)

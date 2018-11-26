@@ -7,7 +7,7 @@ exports.run = async (client, message, args, color) => {
   
 if (message.author.id !== '300577300242759682') return;
 
-    const embed = new Discord.RichEmbed()
+    const embed = new RichEmbed()
     .setColor("RANDOM")
     .addField('Input', '```js\n' + args.slice(1).join(" ") + '```')
 

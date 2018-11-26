@@ -4,7 +4,7 @@ const { chunk } = require('../util.js');
 exports.run = async (client, msg, args) => {
 	try{
 		const serverQueue = client.queue.get(msg.guild.id);
-		if(!serverQueue) return msg.channel.send({ embed: { color: 0xff0707, description: 'Not playing anything right now'}});
+		if(!serverQueue) return msg.channel.send({ embed: { color: 0xff0707, description: 'Lagi gak nyanyi'}});
 		let queues = [];
 		serverQueue.songs.forEach((x, i) => {
 			if(i !== 0){
@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
 			}
 		});
 		const embed = new MessageEmbed().setColor('RANDOM');
-		if(!queues || queues.length < 1) return msg.channel.send(`🎶** | Now playing ${serverQueue.songs[0].title}**`, {embed: embed.setDescription('**No songs in queue**')});
+		if(!queues || queues.length < 1) return msg.channel.send(`🎶** | Sekarang nyanyi ${serverQueue.songs[0].title}**`, {embed: embed.setDescription('**Gak ada lagu di qu eue**')});
 		if(queues.length > 10){
 			let index = 0;
 			queues = queues.map((x, i) => `\`${i +1}\`. __**[${x.title}](${x.url})**__ **by** ${x.author.toString()}`);
@@ -40,7 +40,7 @@ exports.run = async (client, msg, args) => {
 			}
 		}else{
 			embed.setDescription(queues.map((x, i) => `\`${i +1}\`. __**[${x.title}](${x.url})**__ **by** ${x.author.toString()}`).join('\n'));
-			return msg.channel.send(`🎶 ** | Now playing ${serverQueue.songs[0].title}**`, {embed: embed});
+			return msg.channel.send(`🎶 ** | Sekarang nyanyi ${serverQueue.songs[0].title}**`, {embed: embed});
 		}
 	}catch(e){
 		return msg.channel.send(`Oh no an error occured :( \`\`\`${e.stack}\`\`\`try again later`);

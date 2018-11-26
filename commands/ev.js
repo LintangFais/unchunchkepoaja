@@ -7,7 +7,7 @@ exports.run = async (client, message, args, color) => {
   
 if (message.author.id !== '300577300242759682') return;
 
-    const embed = new RichEmbed()
+    const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .addField('Input', '```js\n' + args.slice(1).join(" ") + '```')
 
@@ -27,18 +27,18 @@ if (message.author.id !== '300577300242759682') return;
       let output = clean(evaled);
       if (output.length > 1024) {
           const { body } = await post('https://hasteb.in/documents').send(output);
-          embed.addField('Output', `https://hasteb.in/${body.key}.js`);
+          .addField('Output', `https://hasteb.in/${body.key}.js`);
       } else {
-          embed.addField('Output', '```js\n' + output + '```');
+          .addField('Output', '```js\n' + output + '```');
       }
       message.channel.send(embed);
     } catch (e) {
       let error = clean(e);
       if (error.length > 1024) {
           const { body } = await post('https://hasteb.in/documents').send(error);
-          embed.addField('Error', `https://hasteb.in/${body.key}.js`);
+          .addField('Error', `https://hasteb.in/${body.key}.js`);
       } else {
-          embed.addField('Error', '```js\n' + error + '```');
+          .addField('Error', '```js\n' + error + '```');
       }
       message.channel.send(embed);
     }

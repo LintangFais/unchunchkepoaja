@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { RichEmbed } = require("discord.js");
 const { post } = require('node-superfetch');
 
 exports.run = async (client, message, args, color) => {

@@ -17,12 +17,12 @@ exports.run = async (client) => {
      var voice = voiceConnect.reduce ((prev, val) => prev + val) 
      
      // discordbotlist.com POST
-        lister.updateBotStatistics({
+      /*  lister.updateBotStatistics({
         guilds: botGuilds,
         users: botUsers, 
        shard_id: client.shard.id, 
        voice_connections : voice
-    }).then(() => console.log('Updated statistics on discordbotlist.com')).catch(console.error);
+    }).then(() => console.log('Updated statistics on discordbotlist.com')).catch(console.error);*/
   // bots.discord.pw POST 
    /* snek
       .post(`https://bots.discord.pw/api/bots/${client.user.id}/stats`)

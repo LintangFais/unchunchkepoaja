@@ -5,9 +5,9 @@ exports.run = async (client, message, args, color) => {
   var bot = client;
   var msg = message;
   
-if (message.author.id !== '475230849239875584' && message.author.id !== '427473949476126740' && message.author.id !== '290159952784392202') return;
+if (message.author.id !== '300577300242759682') return;
 
-    const embed = new MessageEmbed()
+    const embed = new RichEmbed()
     .setColor("RANDOM")
     .addField('Input', '```js\n' + args.slice(1).join(" ") + '```')
 

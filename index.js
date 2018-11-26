@@ -154,9 +154,9 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			queueConstruct.connection = connection;
 			play(msg.guild, queueConstruct.songs[0])
 		} catch (error) {
-			console.error(`I could not join the voice channel: ${error}`);
+			console.error(`Gak bisa join VC nya karena : ${error}`);
 			client.queue.delete(msg.guild.id);
-			return msg.channel.send({ embed: { color: 0xf91d1d, description: `I could not join the voice channel: ${error}`}});
+			return msg.channel.send({ embed: { color: 0xf91d1d, description: `Yah, gak bisa join voice channel nya karena : ${error}`}});
 		}
 	} else {
 		if (serverQueue.songs.some(song => song.id === video.id)) {				
@@ -186,7 +186,7 @@ var adedembed = new MessageEmbed()
 function play(guild, song, msg) {
 	const serverQueue = client.queue.get(guild.id);
 	if (!song) {
-		serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'We\'ve run out of songs! Better queue up some more tunes.'}});
+		serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'Lag00 nya dah habis wa leave dolo ea qimaq, astaga ngegad'}});
 		serverQueue.voiceChannel.leave();
 		client.queue.delete(guild.id);
 		return;
@@ -195,7 +195,7 @@ function play(guild, song, msg) {
 
 	const dispatcher = serverQueue.connection.play(ytdl(song.url, { quality: 'highestaudio' }))
 		.on('end', reason => {
-			if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
+			if (reason === 'Stream nya lama amat >:(.') console.log('Song ended.');
 			else console.log(reason);
 			const shifed = serverQueue.songs.shift();
       if(serverQueue.loop) serverQueue.songs.push(shifed);
@@ -212,7 +212,7 @@ var pleyembed = new MessageEmbed()
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
   .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
+  .setFooter("Kalau gak dengan berarti ada masalah pasangan!")
   .setTimestamp();
 
 	serverQueue.textChannel.send(pleyembed);

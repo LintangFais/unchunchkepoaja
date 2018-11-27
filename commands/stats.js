@@ -78,7 +78,7 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
 • ${client.ws.ping.toFixed(2)} MS websocket
 `, true)
   .addField('Uptime', uptime, true) 
-  .addField('Usefull Links', '**[Invite](https://discordapp.com/oauth2/authorize?client_id=500893309514940432&scope=bot&permissions=1517419646)** | **[Support server](https://discord.gg/BTckadf)** | **[Vote](https://discordbots.org/bot/500893309514940432/vote)**') 
+  .addField('Usefull Links', '[Donate To Sharif](https://paypal.me/poetrakencana)') 
   .setTimestamp()
   .setFooter(`Request by: ${msg.author.tag}`)
     

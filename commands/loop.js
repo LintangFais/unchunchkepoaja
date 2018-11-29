@@ -1,3 +1,5 @@
+const Discord = require('discord.js')
+
 exports.run = (client, msg ,args) => {
   const serverQueue = client.queue.get(msg.guild.id);
   if (!msg.member.voice.channel) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You are not in a voice channel!'}});

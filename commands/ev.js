@@ -1,5 +1,4 @@
 const { RichEmbed } = require("discord.js");
-const { post } = require('snekfetch');
 const Discord = require('discord.js')
 const moment = require('moment')
 const path = require("path");

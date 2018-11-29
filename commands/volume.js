@@ -2,9 +2,6 @@ const DBL = require('dblapi.js');
 const dbl = new DBL(process.env.DBL_TOKEN);
 
 exports.run = async(client, msg, args) => {
-  dbl.hasVoted(msg.author.id).then(voted => {
-    if (!voted) return msg.channel.send({ embed: { color: 0xFF0000, description: `You must vote first before using this feature [Click Here](https://discordbots.org/bot/500893309514940432/vote), Then wait for 1 minute until your vote is processed!`}});
-    if (voted) {
     const serverQueue = client.queue.get(msg.guild.id);
     if (!msg.member.voice) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You are not in a voice channel!'}});
 		if (!serverQueue) return msg.channel.send({ embed: { color: 0xFF0000, description: 'There is nothing playing.'}});
@@ -18,7 +15,6 @@ exports.run = async(client, msg, args) => {
  
     if (args[1] < 101) return serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100) + msg.channel.send({ embed: { color: 0x008000, description: `I set the volume to: __**${args[1]}**%__`}});
     
-    }
   })
 }
 

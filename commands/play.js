@@ -10,7 +10,7 @@ exports.run = async (client, msg, args) => {
 	if (!args[1]) return msg.channel.send({ embed: { color: 0xFF0000, description: `*Gini yang benar butjanc*: **${prefix}play** ***[Song Name]/[Video URL]/[Playlist URL]***`}});
         //if(serverQueue.voiceChannel.id !== msg.member.voiceChannel.id) return msg.channel.send({ embed: { color: 0xf91d1d, description: `Wa lagi nyanyi di **${serverQueue.voiceChannel.name}** request di sana aja lah.`}});	
 	const permissions = voiceChannel.permissionsFor(msg.client.user);
-	if (!permissions.has('CONNECT')) return msg.channel.send({ embed: { color: 0xFF0000, description: 'Gak bisa mas00k ea qimaq, ngasih permiss yang benarlah'}});
+	if (!permissions.has('CONNECT')) return msg.channel.send({ embed: { color: 0xFF0000, description: 'Gak bisa masuk ea, ngasih permiss yang benarlah'}});
 	if (!permissions.has('SPEAK')) return msg.channel.send({ embed: { color: 0xFF0000,  description: 'Dih wa gak bisa bicara, ngasih permiss yang benarlah'}});
 	if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
 		const playlist = await youtube.getPlaylist(url);
@@ -19,7 +19,7 @@ exports.run = async (client, msg, args) => {
 			const video2 = await youtube.getVideoByID(video.id);
 			await handleVideo(video2, msg, voiceChannel, true);
 		}
-		return msg.channel.send({ embed: { color: 0x008000,  description: `✅ Playlist: **${playlist.title}** dah kutambahin di qu eue!`}});
+		return msg.channel.send({ embed: { color: 0x008000,  description: `✅ Playlist: **${playlist.title}** dah kutambahin di queue!`}});
 	} else {
 		try {
 			var video = await youtube.getVideo(url);

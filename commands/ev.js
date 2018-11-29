@@ -1,18 +1,24 @@
 const { RichEmbed } = require("discord.js");
-const { post } = require('node-superfetch');
+const { post } = require('snekfetch');
+const Discord = require('discord.js')
+const moment = require('moment')
+const path = require("path");
+const kepo = require("discord.js").RichEmbed
+const { resolve, join } = require("path");
 
 exports.run = async (client, message, args, color) => {
   var bot = client;
   var msg = message;
-  
-if (message.author.id !== '300577300242759682') return;
+  const serverQueue = bot.queue.get(msg.guild.id)
+  owners_id.forEach(async function(owner) {
+    if (message.author.id !== '300577300242759682') return;
 
     const embed = new RichEmbed()
     .setColor("RANDOM")
-    .addField('Input', '```js\n' + args.slice(1).join(" ") + '```')
+    .addField(':inbox_tray: Input', '```js\n' + args.join(" ") + '```')
 
     try {
-      const code = args.slice(1).join(" ");
+      const code = args.join(" ");
       if (!code) return;
       let evaled;
       if (code.includes(`token`)) {
@@ -26,22 +32,23 @@ if (message.author.id !== '300577300242759682') return;
 
       let output = clean(evaled);
       if (output.length > 1024) {
-          const { body } = await post('https://hasteb.in/documents').send(output);
-          embed.addField('Output', `https://hasteb.in/${body.key}.js`);
+          const { body } = await post('https://www.hastebin.com/documents').send(output);
+          embed.addField(':outbox_tray: Output', `https://www.hastebin.com/${body.key}.js`);
       } else {
-          embed.addField('Output', '```js\n' + output + '```');
+          embed.addField(':outbox_tray: Output', '```js\n' + output + '```');
       }
       message.channel.send(embed);
     } catch (e) {
       let error = clean(e);
       if (error.length > 1024) {
-          const { body } = await post('https://hasteb.in/documents').send(error);
-          embed.addField('Error', `https://hasteb.in/${body.key}.js`);
+          const { body } = await post('https://www.hastebin.com/documents').send(error);
+          embed.addField('<:no:435160985259737099> Error', `https://www.hastebin.com/${body.key}.js`);
       } else {
-          embed.addField('Error', '```js\n' + error + '```');
+          embed.addField('<:no:435160985259737099> Error', '```js\n' + error + '```');
       }
       message.channel.send(embed);
     }
+  })
 }
 
 function clean(text) {
@@ -52,10 +59,13 @@ function clean(text) {
 }
 
 exports.conf = {
-  aliases: ["e"],
-  cooldown: 2
+  aliases: ["eval", "ev", "e"],
+  cooldowns: '0'
 } 
 
 exports.help = {
-  name: "ev"
+  name: "e",
+  description: "evaluated",
+  usage: "eval {some super javascript code}"
 }
+

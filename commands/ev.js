@@ -9,7 +9,6 @@ exports.run = async (client, message, args, color) => {
   var bot = client;
   var msg = message;
   const serverQueue = bot.queue.get(msg.guild.id)
-  owners_id.forEach(async function(owner) {
     if (message.author.id !== '300577300242759682') return;
 
     const embed = new RichEmbed()

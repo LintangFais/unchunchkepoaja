@@ -1,5 +1,4 @@
 const DBL = require('dblapi.js');
-const dbl = new DBL(process.env.DBL_TOKEN);
 
 exports.run = async(client, msg, args) => {
     const serverQueue = client.queue.get(msg.guild.id);
@@ -15,8 +14,8 @@ exports.run = async(client, msg, args) => {
  
     if (args[1] < 101) return serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100) + msg.channel.send({ embed: { color: 0x008000, description: `I set the volume to: __**${args[1]}**%__`}});
     
-  })
-}
+  }
+
 
 exports.conf = {
    aliases: ['v']

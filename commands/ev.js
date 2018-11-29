@@ -46,8 +46,8 @@ exports.run = async (client, message, args, color) => {
       }
       message.channel.send(embed);
     }
-  })
-}
+  }
+
 
 function clean(text) {
   if (typeof(text) === "string")

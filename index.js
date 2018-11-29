@@ -186,7 +186,7 @@ var adedembed = new MessageEmbed()
 function play(guild, song, msg) {
 	const serverQueue = client.queue.get(guild.id);
 	if (!song) {
-		serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'Lag00 nya dah habis wa leave dolo ea qimaq, astaga ngegad'}});
+		serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'Lagu nya dah habis, request lagi lah'}});
 		serverQueue.voiceChannel.leave();
 		client.queue.delete(guild.id);
 		return;
@@ -212,7 +212,7 @@ var pleyembed = new MessageEmbed()
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
   .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter("Kalau gak dengar berarti ada masalah dengan pasangan hidup!")
+  .setFooter("Kalau gak dengar berarti bot sedang restart atau internet anda yang kurang bagus!")
   .setTimestamp();
 
 	serverQueue.textChannel.send(pleyembed);

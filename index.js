@@ -112,11 +112,11 @@ exports.queue = queue;
 exports.youtube = youtube;
 
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
-	if (video.durationSeconds === 0) {
+	/*if (video.durationSeconds === 0) {
 			msg.channel.send({embed: { color: 0xFF0000, description: `**${msg.author.username}**, you can't play live streams.`}});
 
 			return undefined;
-		}
+		}*/
 	const serverQueue = client.queue.get(msg.guild.id);
 	//console.log(video)
 	const song = {

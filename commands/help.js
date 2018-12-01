@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 exports.run = async (bot, msg, args) => {
-     let embed = new Discord.RichRmbed()
+     let embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .setAuthor("Meliodas [BETA] Help !", bot.user.displayAvatarURL)
      .addField("🎀 Core", "`shardinfo`, `stats`, `ev`, `ex`")

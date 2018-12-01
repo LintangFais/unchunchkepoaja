@@ -144,7 +144,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
             loop: false, 
 		};
 		client.queue.set(msg.guild.id, queueConstruct);
-        let m = await queueConstruct.textChannel.send(':grin:  | Music servers are expensive! But you can help out: https://paypal.me/TheCreeperIndo');
+        let m = await queueConstruct.textChannel.send(':grin:  | Music servers are expensive! But you can help out: https://paypal.me/fatir1242');
         setTimeout(() => { m.delete() }, 40000); 
 		queueConstruct.songs.push(song);
 
@@ -154,9 +154,9 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			queueConstruct.connection = connection;
 			play(msg.guild, queueConstruct.songs[0])
 		} catch (error) {
-			console.error(`Gak bisa join VC nya karena : ${error}`);
+			console.error(`I could not join the voice channel : ${error}`);
 			client.queue.delete(msg.guild.id);
-			return msg.channel.send({ embed: { color: 0xf91d1d, description: `Yah, gak bisa join voice channel nya karena : ${error}`}});
+			return msg.channel.send({ embed: { color: 0xf91d1d, description: `I could not join the voice channel : ${error}`}});
 		}
 	} else {
 		if (serverQueue.songs.some(song => song.id === video.id)) {				
@@ -173,9 +173,9 @@ var adedembed = new MessageEmbed()
   .setAuthor(`✅ Added to Queue:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
-  .addField("Durasi:", `${require('./util.js').timeString(song.durationmm)}`, true)
-  .addField('<:youtube:516551677533224970> Aplod oleh:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter(`Yang request : ${song.author.tag}`)
+  .addField("Duration :", `${require('./util.js').timeString(song.durationmm)}`, true)
+  .addField('<:youtube:518325312656900096> Uploaded by :', `[${song.uploadedby}](${song.channelurl})`, true)
+  .setFooter(`Requested by : ${song.author.tag}`)
   .setTimestamp();
 		
  return msg.channel.send(adedembed);

@@ -5,9 +5,9 @@ const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500
 exports.run = async (client) => {
   
     function randStatus() {
-    let status = [`${client.guilds.size} Servers! | ${client.shard.count} Shard!`];
+    let status = [`${client.guilds.size} Servers! | ${client.shard.count} Shard!`, `BETA Mode !`];
     let rstatus = Math.floor(Math.random() * status.length);
-    client.user.setActivity(status[rstatus] , { type: 'STREAMING', url: `https://www.twitch.tv/belikedoge`});
+    client.user.setActivity(status[rstatus] , { type: 'WATCHING'});
   };
 setInterval(randStatus, 10000);
   

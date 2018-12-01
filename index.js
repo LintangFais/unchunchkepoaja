@@ -185,8 +185,7 @@ var adedembed = new MessageEmbed()
 
 function play(guild, song, msg) {
 	const serverQueue = client.queue.get(guild.id);
-	if (!song) {
-		serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'Lagu nya dah habis, request lagi lah'}});
+	if (!song) {//serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'Lagu nya dah habis, request lagi lah'}});
 		serverQueue.voiceChannel.leave();
 		client.queue.delete(guild.id);
 		return;
@@ -210,9 +209,9 @@ var pleyembed = new MessageEmbed()
   .setAuthor(`🎶 Start Playing:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
-  .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
-  .addField('<:youtube:516551677533224970> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter("Kalau gak dengar berarti bot sedang restart atau internet anda yang kurang bagus!")
+  .addField("Duration :", `${require('./util.js').timeString(song.durationmm)}`, true)
+  .addField('<:youtube:518325312656900096> Uploaded by :', `[${song.uploadedby}](${song.channelurl})`, true)
+  .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
 	serverQueue.textChannel.send(pleyembed);

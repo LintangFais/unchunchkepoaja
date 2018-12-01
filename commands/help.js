@@ -1,7 +1,7 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 exports.run = async (bot, msg, args) => {
-     let embed = new Discord.RichEmbed()
+     let embed = new MessageEmbed()
      .setColor("RANDOM")
      .setAuthor("Meliodas [BETA] Help !", bot.user.displayAvatarURL)
      .addField("🎀 Core", "`shardinfo`, `stats`, `ev`, `ex`")

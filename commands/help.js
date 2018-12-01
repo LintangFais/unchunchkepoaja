@@ -14,5 +14,5 @@ exports.conf = {
 }
 
 exports.help = {
-   name: 'help"
+   name: 'help'
 }
